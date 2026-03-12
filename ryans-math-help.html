@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ryan's Math Help - Your #1 Source for Math on the Web!!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
+    body {
+      background-color: #000080;
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          rgba(0,0,128,0.3) 10px,
+          rgba(0,0,128,0.3) 20px
+        );
+      font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+      color: #ffff00;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .main-table {
+      width: 760px;
+      margin: 0 auto;
+      background: #c0c0c0;
+      border: 4px ridge #ffffff;
+      color: #000000;
+    }
+
+    .header {
+      background: linear-gradient(180deg, #ff0000, #ff6600, #ffff00, #00ff00, #0000ff, #8b00ff);
+      text-align: center;
+      padding: 10px 0;
+      border-bottom: 4px ridge #888;
+    }
+
+    .header h1 {
+      font-size: 42px;
+      color: #ffffff;
+      text-shadow: 3px 3px 0px #000000, -1px -1px 0px #000;
+      margin: 0;
+      font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .header .subtitle {
+      font-size: 14px;
+      color: #ffff00;
+      font-weight: 700;
+      margin-top: 4px;
+      text-shadow: 1px 1px 0 #000;
+    }
+
+    .marquee-bar {
+      background: #000000;
+      color: #00ff00;
+      font-size: 14px;
+      padding: 4px 0;
+      font-weight: 700;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-inner {
+      display: inline-block;
+      animation: scroll-left 20s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(760px); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .nav-bar {
+      background: #000080;
+      padding: 6px;
+      text-align: center;
+      border-top: 2px solid #fff;
+      border-bottom: 2px solid #888;
+    }
+
+    .nav-bar a {
+      color: #ffff00;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 0 10px;
+      padding: 3px 8px;
+      background: #000060;
+      border: 2px outset #aaa;
+      display: inline-block;
+    }
+
+    .nav-bar a:hover {
+      background: #0000aa;
+      border: 2px inset #aaa;
+    }
+
+    .content-area {
+      display: flex;
+      gap: 0;
+    }
+
+    .left-panel {
+      width: 160px;
+      min-width: 160px;
+      background: #d4d0c8;
+      border-right: 3px ridge #888;
+      padding: 8px;
+      vertical-align: top;
+    }
+
+    .main-content {
+      flex: 1;
+      background: #ffffff;
+      padding: 12px;
+      color: #000000;
+    }
+
+    .panel-box {
+      background: #000080;
+      border: 3px ridge #ccc;
+      margin-bottom: 10px;
+      padding: 0;
+    }
+
+    .panel-title {
+      background: #000060;
+      color: #ffff00;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 5px;
+      text-align: center;
+      border-bottom: 2px solid #888;
+      text-transform: uppercase;
+    }
+
+    .panel-content {
+      padding: 6px;
+      font-size: 12px;
+      color: #ffffff;
+    }
+
+    .panel-content a {
+      color: #00ffff;
+      display: block;
+      text-decoration: none;
+      margin: 2px 0;
+      font-size: 12px;
+    }
+
+    .panel-content a:hover {
+      color: #ffff00;
+      text-decoration: underline;
+    }
+
+    .hit-counter {
+      background: #000;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      padding: 5px;
+      border: 2px inset #666;
+      letter-spacing: 3px;
+      margin-top: 4px;
+    }
+
+    .section-header {
+      background: linear-gradient(90deg, #000080, #0000cc, #000080);
+      color: #ffff00;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border: 2px outset #ccc;
+      margin: 10px 0 8px 0;
+    }
+
+    .welcome-box {
+      background: #ffffcc;
+      border: 3px solid #ff6600;
+      padding: 10px;
+      font-size: 13px;
+      color: #000;
+      margin-bottom: 12px;
+    }
+
+    .welcome-box .big-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: #cc0000;
+      text-align: center;
+    }
+
+    .topics-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .topics-table th {
+      background: #000080;
+      color: #ffff00;
+      padding: 4px 8px;
+      text-align: left;
+      border: 2px outset #ccc;
+    }
+
+    .topics-table td {
+      padding: 4px 8px;
+      border: 1px solid #888;
+      vertical-align: top;
+    }
+
+    .topics-table tr:nth-child(even) td {
+      background: #e8e8ff;
+    }
+
+    .topics-table tr:nth-child(odd) td {
+      background: #ffffff;
+    }
+
+    .email-link {
+      display: inline-block;
+      background: #cc0000;
+      color: #ffffff;
+      padding: 4px 12px;
+      text-decoration: none;
+      border: 3px outset #ff8888;
+      font-weight: 700;
+      font-size: 13px;
+      margin: 4px 0;
+    }
+
+    .email-link:hover {
+      background: #aa0000;
+      border: 3px inset #ff8888;
+    }
+
+    .blink {
+      animation: blink-anim 0.8s step-end infinite;
+      color: #ff0000;
+      font-weight: 700;
+    }
+
+    @keyframes blink-anim {
+      0%, 100% { visibility: visible; }
+      50% { visibility: hidden; }
+    }
+
+    .star-divider {
+      text-align: center;
+      color: #ff6600;
+      font-size: 16px;
+      letter-spacing: 4px;
+      margin: 8px 0;
+    }
+
+    .tip-box {
+      background: #e8ffe8;
+      border-left: 6px solid #00aa00;
+      padding: 8px 10px;
+      font-size: 13px;
+      margin: 10px 0;
+      color: #003300;
+    }
+
+    .tip-box strong {
+      color: #006600;
+    }
+
+    .formula-box {
+      background: #f0f0ff;
+      border: 2px dashed #0000cc;
+      padding: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      text-align: center;
+      color: #000066;
+      margin: 6px 0;
+    }
+
+    .footer {
+      background: #000080;
+      color: #cccccc;
+      text-align: center;
+      font-size: 11px;
+      padding: 8px;
+      border-top: 4px ridge #888;
+    }
+
+    .footer a {
+      color: #ffff00;
+    }
+
+    .under-construction {
+      text-align: center;
+      font-size: 12px;
+      color: #ff6600;
+      font-weight: 700;
+      margin: 6px 0;
+    }
+
+    .visitor-badge {
+      background: #ffff00;
+      color: #000000;
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+      border: 2px solid #ff6600;
+      padding: 4px;
+      margin: 6px 0;
+    }
+
+    .best-viewed {
+      font-size: 10px;
+      color: #aaaaaa;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    .award-gif {
+      text-align: center;
+      font-size: 24px;
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+
+<table class="main-table" cellpadding="0" cellspacing="0">
+  <!-- HEADER -->
+  <tr>
+    <td colspan="2" class="header">
+      <div style="font-size:32px; letter-spacing:3px;">&#8730; + &#960; + &#8721;</div>
+      <h1>Ryan's Math Help!!</h1>
+      <div class="subtitle">&#10022; Your TOTALLY FREE #1 Math Resource on the World Wide Web!! &#10022;</div>
+    </td>
+  </tr>
+
+  <!-- MARQUEE -->
+  <tr>
+    <td colspan="2" class="marquee-bar">
+      <div class="marquee-inner">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        *** WELCOME TO RYAN'S MATH HELP!! ***
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        Algebra &bull; Geometry &bull; Calculus &bull; Trigonometry &bull; Statistics &bull; Pre-Calc
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        *** ALL HELP IS 100% FREE!!! ***
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        Email Ryan your questions!! See below for details!!
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        ** NEW!! Quadratic Formula page added!! **
+        &nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </td>
+  </tr>
+
+  <!-- NAVBAR -->
+  <tr>
+    <td colspan="2" class="nav-bar">
+      <a href="#">&#127968; Home</a>
+      <a href="#">&#128214; Algebra</a>
+      <a href="#">&#128207; Geometry</a>
+      <a href="#">&#128200; Statistics</a>
+      <a href="#">&#128201; Calculus</a>
+      <a href="#">&#128140; Ask Ryan!</a>
+      <a href="#">&#127942; Awards</a>
+    </td>
+  </tr>
+
+  <!-- BODY -->
+  <tr>
+    <td style="vertical-align:top; padding:0; width:160px; background:#d4d0c8; border-right:3px ridge #888;">
+      <!-- LEFT PANEL -->
+      <div style="padding:8px;">
+
+        <div class="panel-box">
+          <div class="panel-title">&#128100; About Ryan</div>
+          <div class="panel-content" style="font-size:11px; text-align:center;">
+            <div style="font-size:28px; margin:4px 0;">&#128104;&#8203;&#127979;</div>
+            Hi!! I'm Ryan, a high school math teacher with 12 years experience. I love math and I love helping students!
+          </div>
+        </div>
+
+        <div class="panel-box">
+          <div class="panel-title">&#128214; Topics</div>
+          <div class="panel-content">
+            <a href="#">&#9658; Basic Math</a>
+            <a href="#">&#9658; Fractions</a>
+            <a href="#">&#9658; Algebra I</a>
+            <a href="#">&#9658; Algebra II</a>
+            <a href="#">&#9658; Geometry</a>
+            <a href="#">&#9658; Trigonometry</a>
+            <a href="#">&#9658; Pre-Calculus</a>
+            <a href="#">&#9658; Calculus</a>
+            <a href="#">&#9658; Statistics</a>
+            <a href="#">&#9658; SAT Prep</a>
+          </div>
+        </div>
+
+        <div class="panel-box">
+          <div class="panel-title">&#128202; Visitors</div>
+          <div class="panel-content">
+            <div class="hit-counter">014,823</div>
+            <div style="font-size:10px; text-align:center; margin-top:3px; color:#aaffaa;">hits since 1999!</div>
+          </div>
+        </div>
+
+        <div class="panel-box">
+          <div class="panel-title">&#128279; Cool Links</div>
+          <div class="panel-content">
+            <a href="#">Mathworld.com</a>
+            <a href="#">Khan Academy</a>
+            <a href="#">Cool Math 4 Kids</a>
+            <a href="#">My Guestbook!</a>
+            <a href="#">Free Webspace</a>
+          </div>
+        </div>
+
+        <div class="award-gif">&#127942;&#127941;</div>
+        <div class="under-construction">
+          &#9888; New pages<br>coming SOON!!
+        </div>
+        <div class="best-viewed">Best viewed in<br>Internet Explorer 5<br>800x600 resolution</div>
+
+      </div>
+    </td>
+
+    <!-- MAIN CONTENT -->
+    <td style="vertical-align:top; background:#ffffff; padding:12px; color:#000;">
+
+      <div class="welcome-box">
+        <div class="big-text">&#128075; WELCOME to Ryan's Math Help!!</div>
+        <br>
+        You have found the <span style="color:#cc0000; font-weight:700;">BEST FREE</span> math help website on the internet!! Whether you're struggling with basic fractions or advanced calculus, <strong>Ryan is here to help!!</strong>
+        <br><br>
+        <span class="blink">&#10026; TOTALLY FREE - NO SIGN UP REQUIRED!! &#10026;</span>
+      </div>
+
+      <div class="star-divider">&#10022; &#9733; &#10022; &#9733; &#10022; &#9733; &#10022;</div>
+
+      <div class="section-header">&#128218; Topics Available on This Site!!</div>
+
+      <table class="topics-table">
+        <tr>
+          <th>Subject</th>
+          <th>What You'll Learn</th>
+          <th>Difficulty</th>
+        </tr>
+        <tr>
+          <td><strong><a href="#" style="color:#0000cc;">Basic Algebra</a></strong></td>
+          <td>Variables, equations, solving for x</td>
+          <td>&#11088;&#11088;</td>
+        </tr>
+        <tr>
+          <td><strong><a href="#" style="color:#0000cc;">Geometry</a></strong></td>
+          <td>Shapes, area, perimeter, proofs</td>
+          <td>&#11088;&#11088;&#11088;</td>
+        </tr>
+        <tr>
+          <td><strong><a href="#" style="color:#0000cc;">Trigonometry</a></strong></td>
+          <td>Sine, cosine, tangent, unit circle</td>
+          <td>&#11088;&#11088;&#11088;</td>
+        </tr>
+        <tr>
+          <td><strong><a href="#" style="color:#0000cc;">Statistics</a></strong></td>
+          <td>Mean, median, mode, probability</td>
+          <td>&#11088;&#11088;&#11088;</td>
+        </tr>
+        <tr>
+          <td><strong><a href="#" style="color:#0000cc;">Calculus</a></strong></td>
+          <td>Derivatives, integrals, limits</td>
+          <td>&#11088;&#11088;&#11088;&#11088;&#11088;</td>
+        </tr>
+        <tr>
+          <td><strong><a href="#" style="color:#0000cc;">SAT Math Prep</a></strong></td>
+          <td>Test strategies, practice problems</td>
+          <td>&#11088;&#11088;&#11088;</td>
+        </tr>
+      </table>
+
+      <div class="star-divider">&#10022; &#9733; &#10022; &#9733; &#10022;</div>
+
+      <div class="section-header">&#128161; Ryan's Math Tips of the Day!!</div>
+
+      <div class="tip-box">
+        <strong>&#128218; TIP #1 - The Quadratic Formula:</strong><br>
+        Stuck on a quadratic equation? Just remember this formula and you can ALWAYS find the answer!!
+        <div class="formula-box">
+          x = (-b &plusmn; &radic;(b&sup2; - 4ac)) / 2a
+        </div>
+        For ax&sup2; + bx + c = 0. Memorize it!! You WILL see it on the test!!
+      </div>
+
+      <div class="tip-box">
+        <strong>&#128218; TIP #2 - SOHCAHTOA:</strong><br>
+        Remembering trig ratios is easy with this trick!!
+        <div class="formula-box">
+          SOH = Sine is Opposite over Hypotenuse<br>
+          CAH = Cosine is Adjacent over Hypotenuse<br>
+          TOA = Tangent is Opposite over Adjacent
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <strong>&#128218; TIP #3 - Order of Operations:</strong><br>
+        Always remember <strong>PEMDAS</strong>!!
+        <div class="formula-box">
+          Please Excuse My Dear Aunt Sally<br>
+          Parentheses &rarr; Exponents &rarr; Multiply &rarr; Divide &rarr; Add &rarr; Subtract
+        </div>
+      </div>
+
+      <div class="star-divider">&#10022; &#9733; &#10022; &#9733; &#10022;</div>
+
+      <div class="section-header">&#128140; Ask Ryan a Question!!</div>
+
+      <div style="background:#fff8e8; border:2px solid #ff6600; padding:10px; font-size:13px;">
+        <p>Do you have a math question that is stumping you?? Just <strong>email Ryan directly</strong> and he will reply within 48 hours with a full explanation!! This service is <span style="color:#cc0000; font-weight:700;">COMPLETELY FREE!!</span></p>
+        <p style="margin-bottom:6px;">Please include:</p>
+        <ul style="margin:0 0 8px 0; padding-left:18px; font-size:12px;">
+          <li>Your name and grade level</li>
+          <li>The full problem written out</li>
+          <li>What you have tried so far</li>
+          <li>What part is confusing you</li>
+        </ul>
+        <a href="mailto:ryan@ryansmathhelp.com" class="email-link">&#128140; Email Ryan NOW!!</a>
+        <br>
+        <span style="font-size:11px; color:#666;">ryan@ryansmathhelp.com</span>
+      </div>
+
+      <div class="star-divider">&#10022; &#9733; &#10022; &#9733; &#10022;</div>
+
+      <div class="section-header">&#128196; What Students Are Saying!!</div>
+
+      <div style="font-size:12px; color:#333;">
+        <div style="background:#f5f5ff; border:1px solid #aaaacc; padding:8px; margin:6px 0;">
+          <em>"Ryan helped me pass my Algebra II final!! I was so lost with logarithms but his explanations made it SO easy!! THANKS RYAN!!"</em><br>
+          <strong>- Jessica M., 10th grade, Ohio</strong>
+        </div>
+        <div style="background:#f5fff5; border:1px solid #aaccaa; padding:8px; margin:6px 0;">
+          <em>"I went from a D to a B+ in calculus after finding this site!! The step by step examples are the best on the web!!!"</em><br>
+          <strong>- Tyler K., 12th grade, Texas</strong>
+        </div>
+        <div style="background:#fff5f5; border:1px solid #ccaaaa; padding:8px; margin:6px 0;">
+          <em>"My mom was having trouble helping me with my homework but then we found this site and now we both understand it!! This should be required for every school!!"</em><br>
+          <strong>- Brianna L., 8th grade, Florida</strong>
+        </div>
+      </div>
+
+      <div class="visitor-badge">
+        &#128100; You are visitor #14,824 to this site!! Thanks for stopping by!!
+      </div>
+
+      <div style="text-align:center; font-size:11px; color:#cc0000; font-weight:700; margin-top:8px;">
+        &#9888;&#65039; Please sign my <a href="#" style="color:#0000cc;">GUESTBOOK</a> before you leave!! &#9888;&#65039;
+      </div>
+
+    </td>
+  </tr>
+
+  <!-- FOOTER -->
+  <tr>
+    <td colspan="2" class="footer">
+      <div>&#169; 1999-2004 Ryan's Math Help &bull; All Rights Reserved &bull; Made with &#10084; and lots of coffee!!</div>
+      <div style="margin-top:4px;">
+        <a href="#">Home</a> &bull;
+        <a href="#">About Ryan</a> &bull;
+        <a href="#">Topics</a> &bull;
+        <a href="#">Ask Ryan</a> &bull;
+        <a href="#">Links</a> &bull;
+        <a href="#">Guestbook</a>
+      </div>
+      <div style="margin-top:4px; font-size:10px; color:#aaaaaa;">
+        Best viewed in Internet Explorer 5.0 or Netscape 4.0 at 800x600 resolution &bull;
+        This page last updated: September 14, 2004
+      </div>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
